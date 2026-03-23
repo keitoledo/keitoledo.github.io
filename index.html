@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Topic Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .card {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 20px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .card.animate {
+      transform: scale(0.95);
+      opacity: 0.5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ff7a18;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+  <h1>🎴 Topic Cards</h1>
+
+  <select id="category">
+    <option value="funny">Funny 😂</option>
+    <option value="deep">Deep 💭</option>
+    <option value="faith">Faith 🙏</option>
+  </select>
+
+  <div class="card" id="question">Tap "Next Question"</div>
+
+  <button onclick="getRandomQuestion()">Next Question</button>
+</div>
+
+<script>
+const questions = {
+  funny: [
+    "What’s your most embarrassing moment?",
+    "If you were an animal, what would you be?",
+    "What’s a weird habit you have?"
+  ],
+  deep: [
+    "What is something you’re struggling with right now?",
+    "What motivates you to keep going?",
+    "What is your biggest dream?"
+  ],
+  faith: [
+    "When did you last feel close to God?",
+    "What is God teaching you lately?",
+    "Who can you pray for today?"
+  ]
+};
+
+function getRandomQuestion() {
+  const card = document.getElementById("question");
+  const category = document.getElementById("category").value;
+  const list = questions[category];
+
+  card.classList.add("animate");
+
+  setTimeout(() => {
+    const randomIndex = Math.floor(Math.random() * list.length);
+    card.innerText = list[randomIndex];
+    card.classList.remove("animate");
+  }, 200);
+}
+</script>
+
+</body>
+</html>
