@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAYC Topic Cards</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  color: #333;
+  padding: 25px;
+  border-radius: 20px;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: all 0.25s ease;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.card.animate {
+  transform: scale(0.95);
+  opacity: 0.4;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff7a18, #ffb347);
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 11px;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+  <h1>🎴 MAYC Topic Cards</h1>
+  <div class="subtitle">Tap to draw a question</div>
+
+  <div class="card" id="question">
+    Tap "Draw Card" to begin
+  </div>
+
+  <button onclick="getRandomQuestion()">🎲 Draw Card</button>
+
+  <div class="footer">Build deeper conversations</div>
+</div>
+
+<script>
+const questions = [
+
+"When did you first realize that this community felt like a family to you?",
+"What 'spiritual heirloom' has someone in this church passed down to you?",
+"When has someone corrected or challenged you in love?",
+"What is something deeper you've never asked the person next to you?",
+"If our CG was a house, what room needs the most work?",
+"What made you come back after your first visit?",
+"What is a 'you had to be there' moment in this group?",
+"Who do you feel safest calling during a rough week and why?",
+"What inside joke makes you feel like an insider?",
+"Which Bible character would you invite to a potluck and why?",
+"When did you realize following Jesus is better with others?",
+"How can we make newcomers feel at home quickly?",
+"If our CG was a movie title, what would it be?",
+"What mask can you take off in this group?",
+"What big life change have you experienced since joining?",
+"What hidden talent can you use to serve others?",
+"When has someone helped carry your burden?",
+"How can we tell when someone needs support?",
+"Why is eating together special?",
+"What 'ingredient' is our community missing?",
+"How do we care for people not present?",
+"What’s your current energy level and how can we help?",
+"What’s the hardest thing you’ve done for someone in Christ?",
+"What does your quiet time look like lately?",
+"How does this group remind you of your identity in God?",
+"What fruit of the Spirit do you see in someone here?",
+"If you're in a dry season, how can we support you?",
+"What habit has God helped you leave behind?",
+"How has your view of church changed?",
+"What truth about God will you never doubt?",
+"What’s a God-story from your week?",
+"What is God currently shaping in you?",
+"If you led a CG, what rule would you set first?",
+"What breakthrough are you waiting for?",
+"What do you want to hear God say to you someday?",
+"What are you glad won’t exist in eternity?",
+"How can we support younger members better?",
+"What would you offer Jesus at a meal?",
+"What non-material blessing are you grateful for?",
+"What verse is hardest for you to follow?",
+"Who encourages you the most?",
+"What mountain are you asking God to move?",
+"What spiritual gift would you want?",
+"What’s your favorite Bible story?",
+"How has your prayer life changed?",
+"What lie are you fighting lately?",
+"What does holiness look like in your work?",
+"How can we bear burdens this week?",
+"What’s the best advice you've received?",
+"What miracle are you waiting for?",
+"What’s your favorite thing about MAYC?",
+"How do you reconnect with God?",
+"What have you learned about God recently?",
+"What Bible event would you visit?",
+"What’s your testimony theme song?",
+"Where have you seen unity here?",
+"What’s your favorite way to serve?",
+"How do you stay spiritually strong during the week?",
+"What brings you joy?",
+"What Bible topic would you teach?",
+"What is success as a Christian?",
+"What do you appreciate about the person beside you?",
+"What dream has God placed in your heart?",
+"Why is spiritual family better than going alone?"
+
+];
+
+function getRandomQuestion() {
+  const card = document.getElementById("question");
+
+  card.classList.add("animate");
+
+  setTimeout(() => {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    card.innerText = questions[randomIndex];
+    card.classList.remove("animate");
+  }, 200);
+}
+</script>
+
+</body>
+</html>
